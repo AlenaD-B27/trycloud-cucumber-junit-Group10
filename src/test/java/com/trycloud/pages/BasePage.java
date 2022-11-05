@@ -12,6 +12,9 @@ public abstract class BasePage {
     }
 
 
+    // create a logout method
+
+
      @FindBy()
     public WebElement header;
 

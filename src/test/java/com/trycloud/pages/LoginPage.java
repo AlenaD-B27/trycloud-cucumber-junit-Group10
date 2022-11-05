@@ -9,7 +9,8 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-
+// don't forget to add not just elements here
+    // but also the login method
 
 
 
