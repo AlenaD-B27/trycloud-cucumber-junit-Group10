@@ -1,6 +1,7 @@
 package com.trycloud.pages;
 
 import com.trycloud.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -20,10 +21,17 @@ public abstract class BasePage {
 
     // --- MODULES:
 
+    public void clickModule(String module){
+        module = module.substring(0,1).toUpperCase() + module.substring(1).toLowerCase();
+        Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']//span[normalize-space(.)='" + module + "']"));
+    }
+
+    // TODO: SHOW THE TEAM THAT WE CAN DO IT WITHOUT THIS LOCATORS
+
      @FindBy()
     public WebElement dashboardModule;
 
-     @FindBy()
+     @FindBy(xpath = "//ul[@id='appmenu']//span[normalize-space(.)='Files']")
     public WebElement filesModule;
 
      @FindBy()
@@ -74,12 +82,6 @@ public abstract class BasePage {
 
      @FindBy()
     public WebElement logout;
-
-
-
-
-
-
 
 
 
