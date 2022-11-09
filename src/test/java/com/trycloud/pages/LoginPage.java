@@ -31,6 +31,7 @@ public class LoginPage {
     public void login (){
         inputUsername.sendKeys(ConfigReader.getProperty("username3"));
         inputPassword.sendKeys(ConfigReader.getProperty("password"));
+        loginButton.click();
     }
     public void goToLoginPage(){
         Driver.getDriver().get(ConfigReader.getProperty("login"));
