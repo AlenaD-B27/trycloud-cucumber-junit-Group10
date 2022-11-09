@@ -1,6 +1,7 @@
 package com.trycloud.step_definitions;
 
 import com.trycloud.pages.LoginPage;
+import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.ConfigReader;
 import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -24,7 +25,7 @@ public class LoginValidStepDefinitions {
     }
     @Then("Verify the user should be at the dashboard page")
     public void verify_the_user_should_be_at_the_dashboard_page() {
-        System.out.println("Driver.getDriver().getCurrentUrl() = " + Driver.getDriver().getCurrentUrl());
+        BrowserUtils.verifyTitleContains("Dashboard");
     }
 
     }
