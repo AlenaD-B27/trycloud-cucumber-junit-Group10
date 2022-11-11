@@ -45,11 +45,11 @@ public class AddToFavs_StepDefs {
 
     @When("user choose the {string} option")
     public void user_choose_the_option(String option) {
-        filesPage.chooseActionOption(option);
+        //filesPage.chooseActionOption(option);
     }
     @When("user click the {string} sub-module on the left side")
     public void user_click_the_sub_module_on_the_left_side(String submodule) {
-        filesPage.clickSubModule(submodule);
+        //filesPage.clickSubModule(submodule);
     }
     @Then("Verify the {string} is listed on the table")
     public void verify_the_is_listed_on_the_table(String searchFile) {
