@@ -12,7 +12,7 @@ import java.util.Map;
 
 import static com.trycloud.utilities.JavaUtils.*;
 
-public class FilesPage {
+public class FilesPage extends BasePage {
 
 
     //table:
@@ -24,7 +24,7 @@ public class FilesPage {
 
     public String clickActionGetFileURL(){
 
-        String fileURL = null;
+        String fileURL = "";
         WebElement actionLocator;
 
         for (int i = 0; i < tableRows.size(); i++) {
