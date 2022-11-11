@@ -27,10 +27,10 @@ public class FilesPage extends BasePage {
         String fileURL = "";
         WebElement actionLocator;
 
-        for (int i = 0; i < tableRows.size(); i++) {
+        for (int i = 1; i < tableRows.size(); i++) {
 
 
-            if(!Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//div[@class='favorite-mark permanent'])[" + i + "]")).isDisplayed()){
+            if(Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//div[contains(@class,'favorite-mark')])[" + i + "]")).getText().equals("Favorited")){
 
                 fileURL = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//a[contains(@href,'/index.php/apps/files')])[" + i + "]")).getAttribute("href");
 
