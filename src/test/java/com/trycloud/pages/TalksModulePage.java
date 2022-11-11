@@ -9,9 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 public class TalksModulePage {
 
     public TalksModulePage() {PageFactory.initElements(Driver.getDriver(),this);}
-
-    @FindBy(xpath = "//*[@id=\"appmenu\"]/li[5]/a")
-    public WebElement talkButton;
+    public WebElement talksButton;
 
 
+    public void login(String username1, String password) {
+    }
 }

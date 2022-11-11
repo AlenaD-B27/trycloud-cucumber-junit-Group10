@@ -35,6 +35,7 @@ public abstract class BasePage {
      @FindBy()
     public WebElement talkModule;
 
+
      @FindBy()
     public WebElement contactsModule;
 
