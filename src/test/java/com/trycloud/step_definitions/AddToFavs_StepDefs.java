@@ -10,16 +10,23 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class AddToFavs_StepDefs {
 
     LoginPage loginPage = new LoginPage();
     DashboardPage dashboardPage = new DashboardPage();
     FilesPage filesPage = new FilesPage();
-    String dummyFile = "";
+
+    String searchFile = "";
+
 
     @Given("{string} on the dashboard page")
     public void on_the_dashboard_page(String user) {
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        Driver.getDriver().get(ConfigReader.getProperty("env"));
         loginPage.login(user);
     }
 
@@ -31,19 +38,22 @@ public class AddToFavs_StepDefs {
 
     @When("the user clicks action-icon  from any file on the page")
     public void the_user_clicks_action_icon_from_any_file_on_the_page() {
+        List<String> fileURLs = new ArrayList<>();
+        for (int i = 0; i < filesPage.fileNames.size(); i++) {
+            fileURLs.add(filesPage.fileNames.get(i).getAttribute("href"));
+        }
         filesPage.anyActionsIcon.click();
     }
     @When("user choose the {string} option")
     public void user_choose_the_option(String option) {
-        filesPage.chooseOption(option);
-        dummyFile = Driver.getDriver().findElement(By.xpath("(//table//span[@class='nametext'])[1]")).getText();
+        filesPage.chooseActionOption(option);
     }
     @When("user click the {string} sub-module on the left side")
-    public void user_click_the_sub_module_on_the_left_side(String string) {
-
+    public void user_click_the_sub_module_on_the_left_side(String submodule) {
+        filesPage.clickSubModule(submodule);
     }
     @Then("Verify the {string} is listed on the table")
-    public void verify_the_is_listed_on_the_table(String string) {
+    public void verify_the_is_listed_on_the_table(String searchFile) {
 
     }
 
