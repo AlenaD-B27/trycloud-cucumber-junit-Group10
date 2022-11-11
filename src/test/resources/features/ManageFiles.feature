@@ -1,8 +1,8 @@
 Feature: As a user, I should be able to add the folder and upload a file inside a folder
-
+  @ElenaB
   Scenario: Verify users can add the folder
 
-  @ElenaB
+
     Given user on the dashboard page
     When the user clicks the "Files" module
     And user clicks the add icon on the top
