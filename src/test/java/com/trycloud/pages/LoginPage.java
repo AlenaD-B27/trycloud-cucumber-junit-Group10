@@ -10,7 +10,7 @@ public class LoginPage {
     }
 
 // don't forget to add not just elements here
-    // but also the login method
+    // but also the login method ....
 
 
 
