@@ -1,5 +1,6 @@
 package com.trycloud.pages;
 
+<<<<<<< HEAD
 import com.trycloud.utilities.ConfigReader;
 import com.trycloud.utilities.Driver;
 import org.openqa.selenium.WebElement;
@@ -36,4 +37,25 @@ public class LoginPage {
         loginBtn.click();
 
     }
+=======
+import com.trycloud.utilities.Driver;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage {
+
+    public LoginPage(){
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
+
+// don't forget to add not just elements here
+    // but also the login method
+
+
+
+
+
+
+
+
+>>>>>>> origin/develop
 }
