@@ -1,5 +1,8 @@
 package com.trycloud.runners;
 
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -8,14 +11,16 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
                 "html:target/cucumber-report.html",
-                "rerun:target/rerun.txt",
+                //"rerun:target/rerun.txt",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         },
         features = "src/test/resources/features",
         glue = "com/trycloud/step_definitions",
-        dryRun = false ,
-        tags = "",
-        publish = true
+        dryRun = true ,
+        tags = "@wip"
+        //publish = true
 )
 public class CukesRunner {
 }
+
+
