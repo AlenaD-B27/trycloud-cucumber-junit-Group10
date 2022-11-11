@@ -3,6 +3,7 @@ package com.trycloud.step_definitions;
 import com.trycloud.pages.DashboardPage;
 import com.trycloud.pages.FilesPage;
 import com.trycloud.pages.LoginPage;
+import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.ConfigReader;
 import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -38,12 +39,10 @@ public class AddToFavs_StepDefs {
 
     @When("the user clicks action-icon  from any file on the page")
     public void the_user_clicks_action_icon_from_any_file_on_the_page() {
-        List<String> fileURLs = new ArrayList<>();
-        for (int i = 0; i < filesPage.fileNames.size(); i++) {
-            fileURLs.add(filesPage.fileNames.get(i).getAttribute("href"));
-        }
-        filesPage.anyActionsIcon.click();
+        BrowserUtils.waitFor(15);
+        searchFile = filesPage.clickActionGetFileURL();
     }
+
     @When("user choose the {string} option")
     public void user_choose_the_option(String option) {
         filesPage.chooseActionOption(option);

@@ -6,14 +6,52 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.trycloud.utilities.JavaUtils.*;
 
 public class FilesPage {
 
-    @FindBy(xpath = "//span[.='Actions']")
-    public WebElement anyActionsIcon;
+
+    //table:
+
+    @FindBy(xpath = "//table[@id='filestable']//tr[@data-type='file']")
+    public List<WebElement> tableRows;
+
+    //table[@id='filestable']//tr[@data-type='file']//div[@class='favorite-mark permanent']   //(star) if displayed - already in favs
+
+    public String clickActionGetFileURL(){
+
+        String fileURL = null;
+        WebElement actionLocator;
+
+        for (int i = 0; i < tableRows.size(); i++) {
+
+
+            if(!Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//div[@class='favorite-mark permanent'])[" + i + "]")).isDisplayed()){
+
+                fileURL = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//a[contains(@href,'/index.php/apps/files')])[" + i + "]")).getAttribute("href");
+
+                actionLocator = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//span[@class='fileactions']//a[@data-action='menu'])[" + i + "]"));
+
+                actionLocator.click();
+                break;
+
+            }
+        }
+
+
+
+        return fileURL;
+
+
+    }
+
+
+
+
 
     //actionOptions:
 
@@ -21,8 +59,6 @@ public class FilesPage {
         Driver.getDriver().findElement(By.xpath("//span[.='" + normalizeCase(option) + "']\"")).click();
     }
 
-    @FindBy(xpath = "(//table//span[@class='nametext'])[1]")
-    public WebElement firstFileInTable;
 
     @FindBy(xpath = "//table[@id='filestable']//a[contains(@href,'/index.php/apps/files?dir')]")
     public List<WebElement> fileNames;

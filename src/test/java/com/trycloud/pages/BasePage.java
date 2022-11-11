@@ -30,33 +30,33 @@ public abstract class BasePage {
         actualModule.click();
     }
 
-    // TODO: SHOW THE TEAM THAT WE CAN DO IT WITHOUT THIS LOCATORS
+    //  SHOW THE TEAM THAT WE CAN DO IT WITHOUT THIS LOCATORS
 
      @FindBy()
     public WebElement dashboardModule;
 
-     @FindBy(xpath = "//ul[@id='appmenu']//span[normalize-space(.)='Files']")
+    @FindBy(xpath = "//ul[@id='appmenu']//span[normalize-space(.)='Files']")
     public WebElement filesModule;
 
-     @FindBy()
+    @FindBy()
     public WebElement photosModule;
 
-     @FindBy()
+    @FindBy()
     public WebElement activityModule;
 
-     @FindBy()
+    @FindBy()
     public WebElement talkModule;
 
-     @FindBy()
+    @FindBy()
     public WebElement contactsModule;
 
-     @FindBy()
+    @FindBy()
     public WebElement circlesModule;
 
-     @FindBy()
+    @FindBy()
     public WebElement calendarModule;
 
-     @FindBy()
+    @FindBy()
     public WebElement deckModule;
 
      // --- right side of the header buttons:
