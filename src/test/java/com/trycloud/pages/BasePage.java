@@ -1,10 +1,13 @@
 package com.trycloud.pages;
 
+import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import static com.trycloud.utilities.JavaUtils.*;
 
 public abstract class BasePage {
 
@@ -22,8 +25,9 @@ public abstract class BasePage {
     // --- MODULES:
 
     public void clickModule(String module){
-        module = module.substring(0,1).toUpperCase() + module.substring(1).toLowerCase();
-        Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']//span[normalize-space(.)='" + module + "']"));
+        WebElement actualModule = Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']//span[normalize-space(.)='" + normalizeCase(module) + "']/.."));
+        BrowserUtils.waitForClickability(actualModule, 10);
+        actualModule.click();
     }
 
     // TODO: SHOW THE TEAM THAT WE CAN DO IT WITHOUT THIS LOCATORS
