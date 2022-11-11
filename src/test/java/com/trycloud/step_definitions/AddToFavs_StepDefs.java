@@ -29,6 +29,7 @@ public class AddToFavs_StepDefs {
     public void on_the_dashboard_page(String user) {
         Driver.getDriver().get(ConfigReader.getProperty("env"));
         loginPage.login(user);
+        System.out.println(user);
     }
 
     @When("the user clicks the {string} module")
@@ -39,7 +40,7 @@ public class AddToFavs_StepDefs {
 
     @When("the user clicks action-icon  from any file on the page")
     public void the_user_clicks_action_icon_from_any_file_on_the_page() {
-       // BrowserUtils.waitFor(15);
+        BrowserUtils.waitForVisibility(filesPage.recommendedFiles, 10);
         searchFile = filesPage.clickActionGetFileURL();
     }
 
