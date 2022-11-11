@@ -27,14 +27,14 @@ public class FilesPage extends BasePage {
         String fileURL = "";
         WebElement actionLocator;
 
-        for (int i = 1; i < tableRows.size(); i++) {
+        for (int i = 0; i < tableRows.size()-1; i++) {
 
 
-            if(Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//div[contains(@class,'favorite-mark')])[" + i + "]")).getText().equals("Favorited")){
+            if(Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//div[contains(@class,'favorite-mark')])[" + (i+1) + "]")).getText().equals("Favorited")){
 
-                fileURL = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//a[contains(@href,'/index.php/apps/files')])[" + i + "]")).getAttribute("href");
+                fileURL = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//a[contains(@href,'/index.php/apps/files')])[" + (i+1) + "]")).getAttribute("href");
 
-                actionLocator = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//span[@class='fileactions']//a[@data-action='menu'])[" + i + "]"));
+                actionLocator = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//span[@class='fileactions']//a[@data-action='menu'])[" + (i+1) + "]"));
 
                 actionLocator.click();
                 break;
@@ -60,11 +60,7 @@ public class FilesPage extends BasePage {
     }
 
 
-    @FindBy(xpath = "//table[@id='filestable']//a[contains(@href,'/index.php/apps/files?dir')]")
-    public List<WebElement> fileNames;
 
-    @FindBy(xpath = "")
-    public List<WebElement> fileStars;
 
 
 
