@@ -5,10 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static com.trycloud.utilities.JavaUtils.*;
 
@@ -19,6 +16,9 @@ public class FilesPage extends BasePage {
 
     @FindBy(xpath = "//table[@id='filestable']//tr[@data-type='file']")
     public List<WebElement> tableRows;
+
+    @FindBy(xpath = "//table[@id='filestable']//tr[@data-type='file']//a[contains(@href,'.php')]")
+    public List<WebElement> listOfFiles;
 
 
     public String clickActionGetFileURL(){

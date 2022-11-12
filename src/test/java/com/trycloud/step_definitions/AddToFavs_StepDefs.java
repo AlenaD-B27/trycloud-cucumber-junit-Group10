@@ -1,6 +1,8 @@
 package com.trycloud.step_definitions;
 
+import com.github.javafaker.Faker;
 import com.trycloud.pages.DashboardPage;
+import com.trycloud.pages.FavouritesPage;
 import com.trycloud.pages.FilesPage;
 import com.trycloud.pages.LoginPage;
 import com.trycloud.utilities.BrowserUtils;
@@ -9,7 +11,8 @@ import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +25,11 @@ public class AddToFavs_StepDefs {
     DashboardPage dashboardPage = new DashboardPage();
     FilesPage filesPage = new FilesPage();
 
+    FavouritesPage favouritesPage = new FavouritesPage();
+
     String searchFile = "";
+
+    Faker faker = new Faker();
 
 
     @Given("{string} on the dashboard page")
@@ -53,8 +60,16 @@ public class AddToFavs_StepDefs {
     public void user_click_the_sub_module_on_the_left_side(String submodule) {
         filesPage.clickSubModule(submodule);
     }
-    @Then("Verify the {string} is listed on the table")
-    public void verify_the_is_listed_on_the_table(String searchFile) {
+    @Then("Verify the chosen file is listed on the table")
+    public void verify_the_is_listed_on_the_table() {
+        String actualHREF = faker.howIMetYourMother().quote();
+        for(WebElement eachFile : favouritesPage.listOfFiles){
+            if(eachFile.getAttribute("href").equals(searchFile)){
+                actualHREF = eachFile.getAttribute("href");
+            }
+        }
+
+        Assert.assertEquals(searchFile, actualHREF);
 
     }
 
