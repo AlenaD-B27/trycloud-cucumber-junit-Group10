@@ -26,7 +26,7 @@ public class FilesPage extends BasePage {
         String fileURL = "";
         WebElement actionLocator = null;
 
-        for (int i = 0; i < tableRows.size()-1; i++) {
+        for (int i = 0; i <= tableRows.size()-1; i++) {
 
 
             if(!Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//div[contains(@class,'favorite-mark')])[" + (i+1) + "]")).getAttribute("class").contains("permanent")){
@@ -41,7 +41,7 @@ public class FilesPage extends BasePage {
         }
 
         if(fileURL.isBlank()) {
-            System.out.println("No files downloaded to the page");
+            System.out.println("No files downloaded to the page or all the files are already added to favourites.");
         } else {
             System.out.println("LINK: " + fileURL);
             actionLocator.click();
@@ -60,14 +60,6 @@ public class FilesPage extends BasePage {
     public void chooseActionOption(String option){
         Driver.getDriver().findElement(By.xpath("//ul//li[@class=' action-favorite-container']//span[.='" + option + "']")).click();
     }
-
-
-
-
-
-
-
-
 
 
 
