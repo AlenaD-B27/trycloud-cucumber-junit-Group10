@@ -29,7 +29,7 @@ public class AddToFavs_StepDefs {
     public void on_the_dashboard_page(String user) {
         Driver.getDriver().get(ConfigReader.getProperty("env"));
         loginPage.login(user);
-        System.out.println(user);
+        System.out.println("Logged in with the username: " + user);
     }
 
     @When("the user clicks the {string} module")
@@ -46,8 +46,9 @@ public class AddToFavs_StepDefs {
 
     @When("user choose the {string} option")
     public void user_choose_the_option(String option) {
-        //filesPage.chooseActionOption(option);
+        filesPage.chooseActionOption(option);
     }
+
     @When("user click the {string} sub-module on the left side")
     public void user_click_the_sub_module_on_the_left_side(String submodule) {
         //filesPage.clickSubModule(submodule);

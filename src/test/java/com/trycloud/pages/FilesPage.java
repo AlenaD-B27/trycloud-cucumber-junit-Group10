@@ -58,7 +58,7 @@ public class FilesPage extends BasePage {
     //actionOptions:
 
     public void chooseActionOption(String option){
-        Driver.getDriver().findElement(By.xpath("//span[.='" + normalizeCase(option) + "']\"")).click();
+        Driver.getDriver().findElement(By.xpath("//ul//li[@class=' action-favorite-container']//span[.='" + option + "']")).click();
     }
 
 
