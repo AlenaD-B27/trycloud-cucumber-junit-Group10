@@ -1,7 +1,7 @@
 package com.trycloud.pages;
 
-public class DashboardPage extends BasePage{
 
+public class DashboardPage extends BasePage{
 
 
 }

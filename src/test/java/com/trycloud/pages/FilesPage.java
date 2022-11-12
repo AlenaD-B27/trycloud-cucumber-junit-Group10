@@ -12,14 +12,23 @@ import static com.trycloud.utilities.JavaUtils.*;
 public class FilesPage extends BasePage {
 
 
-    //table:
-
     @FindBy(xpath = "//table[@id='filestable']//tr[@data-type='file']")
     public List<WebElement> tableRows;
 
     @FindBy(xpath = "//table[@id='filestable']//tr[@data-type='file']//a[contains(@href,'.php')]")
     public List<WebElement> listOfFiles;
 
+    @FindBy(css = "div#recommendations")
+    public WebElement recommendedFiles;
+
+
+
+
+
+
+    public void clickSubModule(String submodule){
+        Driver.getDriver().findElement(By.xpath("//ul[@class='with-icon']//li//a[.='" + normalizeCase(submodule) + "']"));
+    }
 
     public String clickActionGetFileURL(){
 
@@ -51,22 +60,11 @@ public class FilesPage extends BasePage {
 
 
 
-    @FindBy(css = "div#recommendations")
-    public WebElement recommendedFiles;
-
-
-    //actionOptions:
+    //actionOptions dropdown menu when you click on "actions" icon (...)
 
     public void chooseActionOption(String option){
         Driver.getDriver().findElement(By.xpath("//ul//li[@class=' action-favorite-container']//span[.='" + option + "']")).click();
     }
-
-
-
-    public void clickSubModule(String submodule){
-        Driver.getDriver().findElement(By.xpath("//ul[@class='with-icon']//li//a[.='" + normalizeCase(submodule) + "']"));
-    }
-
 
 
 }
