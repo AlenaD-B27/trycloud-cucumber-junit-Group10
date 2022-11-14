@@ -13,7 +13,8 @@ public class FilesPage extends BasePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-
+    @FindBy (xpath = "//ul[@id='appmenu']/li[2]']")
+    public WebElement UserOnDashboard;
 
 
     @FindBy (xpath = "//span[text()='Files']")

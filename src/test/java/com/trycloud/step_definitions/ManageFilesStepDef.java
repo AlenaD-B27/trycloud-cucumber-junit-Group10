@@ -32,9 +32,7 @@ public class ManageFilesStepDef  {
 
       // String Files = FilesPage.FilesIcon.getText();
         FilesPage.FilesIcon.click();
-
-
-
+        BrowserUtils.waitFor(1);
         throw new io.cucumber.java.PendingException();
     }
 
