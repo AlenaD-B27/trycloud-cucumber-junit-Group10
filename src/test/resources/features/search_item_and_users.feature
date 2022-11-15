@@ -1,6 +1,6 @@
 
 @wip
-Feature:  As a user, I should be able to search any item/ users from the homepage.
+Feature:  As a user, I should be able to search any files/folder/users from the homepage.
   Scenario Outline: : Verify users can search any files/folder/users from the search box.
     Given user on the dashboard page
     When User can click the magnifying glass icon
@@ -11,9 +11,14 @@ Feature:  As a user, I should be able to search any item/ users from the homepag
 
 
     Examples:
-      | searchValue       | expectedResult    |
-      |  Readme      |     Readme    |
-      |   Talk    |     Talk    |
-      |   Notes   |   Notes      |
-      | Java     |    Java     |
+      | searchValue | expectedResult|
+      | Readme      | Readme        |
+      | Talk        | Talk          |
+      | Notes       | Notes         |
+      | User16      | User16        |
+      | User62      | User62        |
+      | User40      | User40        |
+      | User21      | User21        |
+      | User29      | User29        |
+
 
