@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
         features = "@target/rerun.txt",
         glue = "com/trycloud/step_definitions"
 
-
 )
 
 public class FailedTestRunner {
