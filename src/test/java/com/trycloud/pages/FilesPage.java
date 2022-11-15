@@ -1,4 +1,4 @@
 package com.trycloud.pages;
 
-public class FilesPage {
+public class FilesPage extends BasePage {
 }
