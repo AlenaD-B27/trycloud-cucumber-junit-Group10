@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.w3c.dom.html.HTMLInputElement;
 
 
 public class TalksModule_StepDefs extends TalksModulePage {
@@ -29,7 +30,9 @@ public class TalksModule_StepDefs extends TalksModulePage {
     }
 
     @When("the user clicks the {string} module")
-    public void the_user_clicks_the_module(String string) {talksButton.click();}
+    public void the_user_clicks_the_module(String string) {
+        WebElement talksButton = null;
+        talksButton.click();}
 
     @Then("verify the page title is {string}")
     public void verify_the_page_title_is(String string) {
