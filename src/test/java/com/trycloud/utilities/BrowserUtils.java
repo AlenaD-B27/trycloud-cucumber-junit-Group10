@@ -14,6 +14,9 @@ import java.util.Set;
 
 
 public class BrowserUtils {
+    public static void verifyTitleContains(String title){
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(title));
+    }
     //Methods are static. Because we do not want to create an object to call those methods.
     // We just want to call those methods with class name. That is why they are static type
 
