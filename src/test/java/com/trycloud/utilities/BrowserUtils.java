@@ -1,5 +1,6 @@
 package com.trycloud.utilities;
 
+import com.trycloud.pages.TalksModulePage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -497,4 +498,6 @@ public class BrowserUtils {
         new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public static void waitForVisibility(TalksModulePage talksModulePage) {
+    }
 }

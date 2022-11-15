@@ -4,13 +4,11 @@ package com.trycloud.step_definitions;
 import com.trycloud.pages.TalksModulePage;
 import com.trycloud.utilities.ConfigReader;
 import com.trycloud.utilities.Driver;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-import org.w3c.dom.html.HTMLInputElement;
+
 
 
 public class TalksModule_StepDefs extends TalksModulePage {
@@ -21,12 +19,6 @@ public class TalksModule_StepDefs extends TalksModulePage {
     public void user_on_the_dashboard_page() {
         Driver.getDriver().get(ConfigReader.getProperty("env"));
     }
-
-    @When("user enters username {string} password {string} and logins")
-    public void user_Enters_Username_Password_And_Logins(String Username, String password) {
-            talksModulePage.inputUsername.sendKeys(Username);
-            talksModulePage.inputPassword.sendKeys(password);
-        }
 
 
     @When("the user clicks the {string} module")
