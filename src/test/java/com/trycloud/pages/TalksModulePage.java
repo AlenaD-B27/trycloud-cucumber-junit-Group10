@@ -6,9 +6,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class TalksModulePage {
+    public TalksModulePage(WebElement inputUsername, WebElement inputPassword, WebElement loginButton) {
+        this.inputUsername = inputUsername;
+        this.inputPassword = inputPassword;
+        this.loginButton = loginButton;
+    }
 
     public TalksModulePage() {PageFactory.initElements(Driver.getDriver(),this);}
-    @FindBy(name="username1")
+    @FindBy(name="Username")
     public WebElement inputUsername;
 
     @FindBy(name="password")

@@ -15,19 +15,19 @@ import org.w3c.dom.html.HTMLInputElement;
 
 public class TalksModule_StepDefs extends TalksModulePage {
     TalksModulePage talksModulePage = new TalksModulePage();
-    private WebElement talkButton;
+
 
     @Given("user on the dashboard page")
     public void user_on_the_dashboard_page() {
-        System.out.println("user should see dashboard");
+        Driver.getDriver().get(ConfigReader.getProperty("env"));
     }
 
     @When("user enters username {string} password {string} and logins")
-    public void userEntersUsernamePasswordAndLogins(String username1, String password) {
+    public void user_Enters_Username_Password_And_Logins(String Username, String password) {
+            talksModulePage.inputUsername.sendKeys(Username);
+            talksModulePage.inputPassword.sendKeys(password);
+        }
 
-        talksModulePage.login(username1,password);
-
-    }
 
     @When("the user clicks the {string} module")
     public void the_user_clicks_the_module(String string) {
