@@ -2,7 +2,9 @@ package com.trycloud.step_definitions;
 
 
 import com.trycloud.pages.TalksModulePage;
+import com.trycloud.utilities.ConfigReader;
 import com.trycloud.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,7 +18,7 @@ public class TalksModule_StepDefs extends TalksModulePage {
 
     @Given("user on the dashboard page")
     public void user_on_the_dashboard_page() {
-        Driver.getDriver().get("http://qa2.trycloud.net/");
+        System.out.println("user should see dashboard");
     }
 
     @When("user enters username {string} password {string} and logins")
@@ -37,3 +39,4 @@ public class TalksModule_StepDefs extends TalksModulePage {
     }
 
 }
+
