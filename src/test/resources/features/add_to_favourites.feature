@@ -16,10 +16,3 @@ Feature: As a user, I should be able to access to Files module - Favorites butto
       |User40  |
       |User70  |
       |User100 |
-
-    Scenario: Lets say it is some scenario here
-
-      Given "<user>" on the dashboard page
-      When the user clicks the "Files" module
-      And user does simethinhg else
-      And user logs out
