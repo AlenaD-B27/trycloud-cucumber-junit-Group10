@@ -23,9 +23,7 @@ public class LoginPage {
     public WebElement loginButton;
 
 
-
-
-    }
+ }
 
 
 
