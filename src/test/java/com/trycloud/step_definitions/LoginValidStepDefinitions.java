@@ -28,5 +28,8 @@ public class LoginValidStepDefinitions {
         BrowserUtils.verifyTitleContains("Dashboard");
     }
 
+    @When("the user clicks the {string} module")
+    public void theUserClicksTheModule(String arg0) {
     }
+}
 
