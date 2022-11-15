@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class TalksModulePage {
-    TalksModulePage talksModulePage = new TalksModulePage();
 
     public TalksModulePage() {PageFactory.initElements(Driver.getDriver(),this);}
     public WebElement talksButton;
