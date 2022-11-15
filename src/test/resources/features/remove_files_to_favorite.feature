@@ -3,7 +3,6 @@ Feature: As a user, I should be able to remove files from favorites and upload a
   @wip
   Scenario Outline:  user should  remove files to Favorites
     Given user already on the page he or she inputs  "<userName>" and "<password>" on the page
-    Given user on the dashboard page
     When the user clicks the "Files" module
     When the users click action-icon from any file on the page to remove
     And  user choose the "Remove from favorites" option

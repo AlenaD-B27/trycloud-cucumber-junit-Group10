@@ -9,20 +9,24 @@ import java.util.List;
 
 public class RemoveFromFavPage {
 
+
+
     public RemoveFromFavPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(className = "app-icon")
+    @FindBy(xpath = "//ul[@id='appmenu']/li[2]")
     public WebElement filesButton;
 
-    @FindBy(xpath = "//*[.='Actions']")
+    @FindBy(xpath = "//table[@id='filestable']//tr[@data-type='file']")
     public List<WebElement> actionsButtons;
 
-    @FindBy(xpath = "//*[.='Remove from favorites']")
-    public List<WebElement> removeFavorButton;
 
-    @FindBy(xpath = "//a[.='Favorites']")
+    @FindBy(xpath = "//div[@class='fileActionsMenu popovermenu bubble open menu']//li[3]/a/span[2]")
+    public WebElement removeFavorButton;
+
+
+    @FindBy()
     public WebElement favoritesButton;
 
 
