@@ -17,7 +17,6 @@ public class BrowserUtils {
     //Methods are static. Because we do not want to create an object to call those methods.
     // We just want to call those methods with class name. That is why they are static type
 
-
     /**
      * This method is used to pause the code for given seconds
      * It is static method we can call with class name
@@ -34,7 +33,6 @@ public class BrowserUtils {
             System.out.println("Exception happened in sleep method!");
         }
     }
-
 
     //Method info:
     //• Name: verifyTitle()
@@ -54,7 +52,6 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),15);
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
-
 
     /**
      * This method will accept dropdown as a WebElement
@@ -106,7 +103,6 @@ public class BrowserUtils {
     public static void verifyURLContains(String expectedInURL){
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(expectedInURL));
     }
-
 
     /*
     This method accepts 3 arguments.
@@ -496,5 +492,18 @@ public class BrowserUtils {
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
+
+    public static void clickElement(WebElement element){
+        waitForVisibility(element, 10);
+        waitFor(1);
+        element.click();
+    }
+
+    public static void verifyTitle(String title ){
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(title));
+
+    }
+
+
 
 }
