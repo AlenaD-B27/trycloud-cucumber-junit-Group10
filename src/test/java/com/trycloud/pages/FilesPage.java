@@ -9,14 +9,15 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.List;
 public class FilesPage extends BasePage {
-    public FilesPage (){
+    public FilesPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy (xpath = "//ul[@id='appmenu']/li[2]']")
-    public WebElement UserOnDashboard;
+//    @FindBy (xpath = "//ul[@id='appmenu']/li[2]']")// do i need this?
+//    public WebElement UserOnDashboard;
 
-
+    @FindBy (xpath = "//ul[@id='appmenu']/li[2]")
+    public WebElement filesButton;
     @FindBy (xpath = "//span[text()='Files']")
     public WebElement FilesIcon;
 
