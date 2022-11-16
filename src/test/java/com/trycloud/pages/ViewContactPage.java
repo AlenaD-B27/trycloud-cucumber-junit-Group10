@@ -16,12 +16,7 @@ public class ViewContactPage {
     @FindBy(xpath = "(//ul/li[@data-id='contacts'])[1]")
     public WebElement contactsModuleButton;
 
-    @FindBy (id = "NWJhNDUxY2YtNjdjZi00MjQ3LWE1MGUtNGU4OTk1Nzc0NGYxfmNvbnRhY3")
-    public  WebElement contactNameFirst;
 
-
-    @FindBy (className = "vue-recycle-scroller__item-wrapper")
-    public WebElement contactCounter;
 
     public void verifyContact(){
         for (int i = 1; i <= 2; i++) {

@@ -1,6 +1,5 @@
 package com.trycloud.step_definitions;
 
-import com.trycloud.pages.BasePage;
 import com.trycloud.pages.LoginPage;
 import com.trycloud.pages.ViewContactPage;
 import com.trycloud.utilities.ConfigReader;
@@ -8,9 +7,7 @@ import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebElement;
 
-import java.util.List;
 
 public class ViewContactStepDefinitions {
 
