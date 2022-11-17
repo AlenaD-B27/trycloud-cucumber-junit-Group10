@@ -7,6 +7,7 @@ import com.trycloud.pages.LoginPage;
 import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.ConfigReader;
 import com.trycloud.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -76,4 +77,36 @@ public class ManageFilesStepDef  {
 
     }
 
+    // Senario 2
+
+    @And("user choose a folder from the page")
+    public void userChooseAFolderFromThePage() {
+        filesPage.clickFolder();
+    }
+    @And("user choose and click a folder from the page")
+    public void userChooseAndClickAFolderFromThePage() {
+        filesPage.clickNewFolder(newFolderName);
+    }
+
+    String expected = "Selenium";
+    @When("the user uploads a file with the upload file option")
+    public void theUserUploadsAFileWithTheUploadFileOption() {
+        BrowserUtils.waitFor(1);
+
+        filesPage.inputButton.sendKeys("C:\\Users\\lena-\\Downloads"+expected+".txt");
+        BrowserUtils.waitForPageToLoad(5);
+        BrowserUtils.waitFor(2);
+    }
+
+    @Then("Verify the file is displayed on the page")
+    public void verifyTheFileIsDisplayedOnThePage() {
+        filesPage.verifyFileName(filesPage.fileNameVerify,expected);
+    }
 }
+
+
+
+
+
+
+

@@ -103,7 +103,29 @@ public class FilesPage extends BasePage {
         list2.get(1).click();
     }
 
+    public void clickFolder(){
+        for (WebElement each: fileType){
+            BrowserUtils.hover(each);
+            if(each.getAttribute("data-type").equalsIgnoreCase("dir")){
+                each.click();
+                break;
+            }
+        }
+    }
+    public void clickNewFolder(String newFolderName){
+        new FilesPage().addIconButton.click();
+        newFolder.click();
+        inputFolderName.sendKeys(newFolderName);
+        submitFolderName.click();
+        BrowserUtils.waitFor(1);
 
-
+        for(WebElement each: fileNameVerify){
+            BrowserUtils.hover(each);
+            if(each.getText().equalsIgnoreCase(newFolderName)){
+                each.click();
+                break;
+            }
+        }
+    }
 
 }
