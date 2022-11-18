@@ -93,7 +93,7 @@ public class ManageFilesStepDef  {
     public void theUserUploadsAFileWithTheUploadFileOption() {
         BrowserUtils.waitFor(1);
 
-        filesPage.inputButton.sendKeys("C:\\Users\\lena-\\Downloads"+expected+".txt");
+        filesPage.inputButton.sendKeys("C:/Users/lena-/Downloads/"+expected+".docx");
         BrowserUtils.waitForPageToLoad(5);
         BrowserUtils.waitFor(2);
     }
