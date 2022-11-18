@@ -1,14 +1,19 @@
 package com.trycloud.step_definitions;
 
+import com.trycloud.pages.LoginPage;
+import com.trycloud.utilities.ConfigReader;
+import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TalkSendMsg_StepDefs {
+    LoginPage loginPage = new LoginPage();
     @Given("user on the dashboard page")
     public void user_on_the_dashboard_page() {
-
+        Driver.getDriver().get(ConfigReader.getProperty("env"));
+    loginPage.login();
     }
     @When("the user clicks the {string} module")
     public void the_user_clicks_the_module(String string) {
