@@ -85,7 +85,7 @@ public class ManageFilesStepDef  {
     }
     @And("user choose and click a folder from the page")
     public void userChooseAndClickAFolderFromThePage() {
-        filesPage.clickNewFolder(newFolderName);
+        filesPage.clickNewFolder("newFolderName");
     }
 
     String expected = "Selenium";
