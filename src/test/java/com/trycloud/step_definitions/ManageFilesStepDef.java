@@ -1,6 +1,7 @@
 package com.trycloud.step_definitions;
 
 
+import com.github.javafaker.Faker;
 import com.trycloud.pages.BasePage;
 import com.trycloud.pages.FilesPage;
 import com.trycloud.pages.LoginPage;
@@ -19,7 +20,8 @@ public class ManageFilesStepDef  {
     LoginPage loginPage = new LoginPage();
     FilesPage filesPage = new FilesPage();
 
-
+Faker faker = new Faker();
+String searchName = faker.name().firstName();
 
     @Given("user on the dashboard page")
  public void user_on_the_dashboard_page() {
@@ -57,7 +59,7 @@ public class ManageFilesStepDef  {
 
     @When("user write a folder name")
     public void user_write_a_folder_name() {
-       filesPage.inputFolderName.sendKeys("ElenaB");
+       filesPage.inputFolderName.sendKeys(searchName);
         BrowserUtils.waitFor(1);
 
     }
@@ -71,7 +73,7 @@ public class ManageFilesStepDef  {
 
     @Then("Verify the folder is displayed on the page")
     public void verify_the_folder_is_displayed_on_the_page() {
-        Assert.assertTrue(filesPage.newCreated.getText().contains("ElenaB"));
+        Assert.assertTrue(filesPage.newCreated.getText().contains(searchName));
         System.out.println(filesPage.newCreated.getText());
 
     }
