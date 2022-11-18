@@ -2,12 +2,9 @@ package com.trycloud.step_definitions;
 
 import com.trycloud.pages.LoginPage;
 import com.trycloud.utilities.BrowserUtils;
-import com.trycloud.utilities.ConfigReader;
-import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 
 public class LoginValidStepDefinitions {
     LoginPage loginPage = new LoginPage();
@@ -28,8 +25,6 @@ public class LoginValidStepDefinitions {
         BrowserUtils.verifyTitleContains("Dashboard");
     }
 
-    @When("the user clicks the {string} module")
-    public void theUserClicksTheModule(String arg0) {
+
     }
-}
 
