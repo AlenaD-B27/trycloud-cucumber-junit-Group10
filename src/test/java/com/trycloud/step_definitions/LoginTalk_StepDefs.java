@@ -47,7 +47,9 @@ public class LoginTalk_StepDefs {
     @Then("verify the page title is {string}")
     public void verify_the_page_title_is(String string) {
 
-        System.out.println(string);
+        Assert.assertEquals("Talk - Trycloud",Driver.getDriver().getTitle());
+
+       // System.out.println(string);
        // Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("Talk - Trycloud QA"))
 
            // String actualModule = login_TalkPage.talkTryCloudQA.getText();
