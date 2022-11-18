@@ -12,30 +12,31 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//input[@id='user']")
-    public WebElement txt_username;
+    @FindBy(id="user")
+    public WebElement inputUsername;
 
-    @FindBy(xpath = "//input[@id='password']")
-    public WebElement txt_password;
+    @FindBy(id="password")
+    public WebElement inputPassword;
 
+    @FindBy(id="submit-form")
+    public WebElement loginButton;
 
-    @FindBy(xpath = "//input[@id='submit-form']")
-    public WebElement btn_login;
+    @FindBy(xpath = "//p[@class='warning wrongPasswordMsg']")
+    public WebElement message;
 
-
-    public void login(String username, String password) {
-        txt_username.sendKeys(username);
-        txt_password.sendKeys(password);
+    public void login (String username, String password){
+        inputUsername.sendKeys(username);
+        inputPassword.sendKeys(password);
+    }
+    public void login (){
+        inputUsername.sendKeys(ConfigReader.getProperty("username3"));
+        inputPassword.sendKeys(ConfigReader.getProperty("password"));
+        loginButton.click();
+    }
+    public void goToLoginPage(){
+        Driver.getDriver().get(ConfigReader.getProperty("login"));
     }
 
-
-    public void login() {
-        login(ConfigReader.getProperty("username1"), ConfigReader.getProperty("password"));
-        btn_login.click();
-    }
-
-// don't forget to add not just elements here
-    // but also the login method
 
 
 
