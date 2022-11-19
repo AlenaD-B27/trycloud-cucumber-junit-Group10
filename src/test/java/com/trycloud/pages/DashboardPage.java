@@ -10,9 +10,9 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DashboardPage extends BasePage{
+public class DashboardPage {
 
-    public DashboardPage() {
+    public  DashboardPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
@@ -25,6 +25,7 @@ public class DashboardPage extends BasePage{
         for( int i = 0; i < modules1.size() -1; i++){
 
             BrowserUtils.hover(modules1.get(i));
+            BrowserUtils.sleep(1);
             modulesText.add(modules1.get(i).getText());
 
         }

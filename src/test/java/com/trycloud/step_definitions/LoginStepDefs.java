@@ -13,19 +13,19 @@ public class LoginStepDefs {
     LoginPage loginPage = new LoginPage();
 
     @Given("user on the login page")
-    public void user_on_the_login_page(){
+    public void userOnThe_login_page(){
         Driver.getDriver().get(ConfigReader.getProperty("env_try"));
     }
 
     @When("user enter username {string} and passcode {string}")
-    public void user_enter_username_and_passcode(String username, String password) {
+    public void user_enter_username_and_passcode(String userName, String passWord) {
 
-        loginPage.login(username,password);
+        loginPage.login(userName,passWord);
 
     }
     @When("user click the login button")
     public void user_click_the_login_button() {
-        BrowserUtils.clickElement(loginPage.btn_login);
+     //   BrowserUtils.clickElement(loginPage.loginButton);
     }
 
     @Then("Verify the user should be at the dashboard page")

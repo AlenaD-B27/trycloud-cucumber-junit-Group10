@@ -6,13 +6,16 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-
-        glue = "com/trycloud/step_definitions",
+        plugin = {
+                "html:target/cucumber-report.html",
+                "rerun:target/rerun.txt",
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
+        },
         features = "src/test/resources/features",
-        tags = "@wip",
-        dryRun = false
-
-
+        glue = "com/trycloud/step_definitions",
+        dryRun = false,
+        tags = "@us_03",
+        publish = true
 )
 public class CukesRunner {
 }
