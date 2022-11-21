@@ -1,4 +1,7 @@
+@smoke @regression
+
 Feature: As a user, I should be able to login.
+
   @wip
   Scenario Outline: Verify login with valid credentials
     Given user on the login page
