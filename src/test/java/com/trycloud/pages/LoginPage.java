@@ -1,5 +1,6 @@
 package com.trycloud.pages;
 
+import com.trycloud.utilities.ConfigReader;
 import com.trycloud.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +22,12 @@ public class LoginPage {
 
     @FindBy(xpath = "//input[@value = 'Log in']")
     public WebElement loginButton;
+
+   public void login(String userName, String password){
+        userNameBox.sendKeys(userName);
+        passwordBox.sendKeys(password);
+        loginButton.click();
+    }
 
 
  }

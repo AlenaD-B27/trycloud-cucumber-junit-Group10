@@ -18,16 +18,18 @@ public class RemoveFromFavPage {
     @FindBy(xpath = "//ul[@id='appmenu']/li[2]")
     public WebElement filesButton;
 
-    @FindBy(xpath = "//table[@id='filestable']//tr[@data-type='file']")
-    public List<WebElement> actionsButtons;
+
+    @FindBy(xpath = "//a[@data-action='menu']")
+    public WebElement actionButton;
 
 
-    @FindBy(xpath = "//div[@class='fileActionsMenu popovermenu bubble open menu']//li[3]/a/span[2]")
+    @FindBy(xpath = "//div[@class='fileActionsMenu popovermenu bubble open menu']//li[3]")
     public WebElement removeFavorButton;
 
 
-    @FindBy()
+    @FindBy(xpath = "//a[.='Favorites']")
     public WebElement favoritesButton;
+
 
 
 
