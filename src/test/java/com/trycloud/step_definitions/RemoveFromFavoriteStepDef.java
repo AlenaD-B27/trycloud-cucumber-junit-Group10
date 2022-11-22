@@ -87,23 +87,7 @@ public class RemoveFromFavoriteStepDef{
 
     }
 
-    // Scenario 2
-    @When("the user clicks the add icon on the top")
-    public void theUserClicksTheAddIconOnTheTop() {
-    }
-
-    @And("users uploads file with the {string} option")
-    public void usersUploadsFileWithTheOption(String arg0) {
-    }
-
-    @Then("verify the file is displayed on the page")
-    public void verifyTheFileIsDisplayedOnThePage() {
-    }
-
-
-
-
-    }
+}
 
 
 
