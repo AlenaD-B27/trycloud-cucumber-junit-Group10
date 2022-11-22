@@ -1,5 +1,6 @@
 package com.trycloud.step_definitions;
 
+import com.trycloud.pages.FilesPage;
 import com.trycloud.pages.LoginPage;
 import com.trycloud.pages.RemoveFromFavPage;
 import com.trycloud.utilities.BrowserUtils;
@@ -9,60 +10,106 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.interactions.Actions;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
-public class RemoveFromFavoriteStepDef extends BrowserUtils {
+public class RemoveFromFavoriteStepDef{
 
     LoginPage loginPage = new LoginPage();
     RemoveFromFavPage removeFromFavPage = new RemoveFromFavPage();
+
+    FilesPage filesPage = new FilesPage();
+
+
+ //  Scenario 1
+
+    String file = " ";
 
 
     @Given("user already on the page he or she inputs  {string} and {string} on the page")
     public void userAlreadyOnThePageHeOrSheInputsAndOnThePage(String userName, String password) {
         Driver.getDriver().get(ConfigReader.getProperty("env"));
-
-        loginPage.userNameBox.sendKeys(userName);
-        loginPage.passwordBox.sendKeys(password);
-        loginPage.loginButton.click();
+            loginPage.login(userName,password);
+//        loginPage.userNameBox.sendKeys(userName);
+//        loginPage.passwordBox.sendKeys(password);
+//        loginPage.loginButton.click();
 
     }
 
-    @When("the user clicks the {string} module")
-    public void theUserClicksTheModule(String files) {
-        removeFromFavPage.filesButton.click();
 
+
+    @When("the user clicks the Files module")
+    public void theUserClicksTheFilesModule() {
+        removeFromFavPage.filesButton.click();
     }
 
     @When("the users click action-icon from any file on the page to remove")
     public void the_users_click_action_icon_from_any_file_on_the_page_to_remove() {
-        BrowserUtils.sleep(4);
-        //removeFromFavPage.actionsButtons.click();
-        //removeFromFavPage.addToFavorites.click();
-
+        BrowserUtils.waitFor(3);
+        file = filesPage.clickGetFileURL();
 
     }
+
+//    @And("user choose the Remove from favorites option")
+//    public void userChooseTheRemoveFromFavoritesOption() {
+//        BrowserUtils.waitFor(3);
+//        removeFromFavPage.removeFavorButton.click();
+//
+//    }
 
     @And("user choose the {string} option")
-    public void userChooseTheOption(String removeFromFavorites) {
-
-
+    public void userChooseTheOption(String removeOption) {
+        filesPage.chooseActionOption(removeOption);
     }
+
+
 
     @And("user click the {string} sub-module on the left side")
-    public void userClickTheSubModuleOnTheLeftSide(String favoriteSubModule) {
-
-
-
-        
+    public void userClickTheFavoritesSubModuleOnTheLeftSide(String favoriteButton) {
+        BrowserUtils.waitFor(3);
+        filesPage.clickSubModule(favoriteButton);
     }
+
 
     @Then("Verify that the file is removed from the Favorites sub-module’s table")
     public void verifyThatTheFileIsRemovedFromTheFavoritesSubModuleSTable() {
+    String actualLink = Driver.getDriver().getCurrentUrl();
+    for (WebElement eachDoc : filesPage.filesInTable) {
+        if(eachDoc.getAttribute("href").equals(file)){
+            actualLink = eachDoc.getAttribute("href");
+        }
+
+    }
+
+        Assert.assertFalse(actualLink,false);
+
+
+
+    }
+
+    // Scenario 2
+    @When("the user clicks the add icon on the top")
+    public void theUserClicksTheAddIconOnTheTop() {
+    }
+
+    @And("users uploads file with the {string} option")
+    public void usersUploadsFileWithTheOption(String arg0) {
+    }
+
+    @Then("verify the file is displayed on the page")
+    public void verifyTheFileIsDisplayedOnThePage() {
     }
 
 
 
+
     }
+
+
+
+
+
+
 
 
 
