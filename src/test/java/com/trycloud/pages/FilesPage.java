@@ -65,7 +65,30 @@ public class FilesPage extends BasePage {
 
     }
 
+    // Scenario 2
+    @FindBy(xpath = "//a[@class='button new']")
+    public WebElement addIcon;
 
+    @FindBy(xpath = "//label[@data-action='upload']")
+    public WebElement uploadButton;
+
+    @FindBy(xpath = "//input[@type ='file']")
+    public WebElement hiddenUploadBar;
+
+    @FindBy(xpath = "//span[@class='innernametext']")
+    public WebElement AllFileNames;
+
+    @FindBy(xpath = "//a[@class='name']//span[.='ClassNotes']")
+    public WebElement fileName;
+
+    @FindBy(id = "uploadprogressbar")
+    public WebElement chooseFile;
 
 }
+
+
+
+
+
+
 
