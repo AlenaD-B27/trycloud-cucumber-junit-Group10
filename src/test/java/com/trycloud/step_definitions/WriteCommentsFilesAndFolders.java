@@ -10,16 +10,17 @@ public class WriteCommentsFilesAndFolders {
     public void user_on_the_dashboard_page() {
 
     }
-    @When("the user clicks the {string} module")
-    public void the_user_clicks_the_module(String string) {
+    @When("the user clicks the Files module")
+    public void the_user_clicks_the_files_module() {
+
 
     }
     @When("user click action-icon  from any file on the page")
     public void user_click_action_icon_from_any_file_on_the_page() {
 
     }
-    @When("user choose the {string} option")
-    public void user_choose_the_option(String string) {
+    @When("user choose the Details option")
+    public void user_choose_the_details_option() {
 
     }
     @When("user write a comment inside the input box")
