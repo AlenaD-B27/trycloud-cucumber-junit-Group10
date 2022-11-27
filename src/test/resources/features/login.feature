@@ -1,11 +1,8 @@
-@smoke @regression
-
 Feature: As a user, I should be able to login.
-
   @wip
   Scenario Outline: Verify login with valid credentials
     Given user on the login page
-    When user enter username "<username>" and passcode "<password>"
+    When user enter username "<username>" and password "<password>"
     And user click the login button
     Then Verify the user should be at the dashboard page
 
