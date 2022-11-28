@@ -1,6 +1,8 @@
 package com.trycloud.step_definitions;
 
 import com.trycloud.pages.LoginPage;
+import com.trycloud.utilities.ConfigReader;
+import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,12 +11,13 @@ public class WriteCommentsFilesAndFolders {
 
     @Given("user on the dashboard page")
     public void user_on_the_dashboard_page() {
-
+        Driver.getDriver().get(ConfigReader.getProperty("login"));
+        new LoginPage().login();
     }
 
     @When("the user clicks the Files module")
     public void the_user_clicks_the_files_module() {
-        new LoginPage().login();
+
 
     }
 
