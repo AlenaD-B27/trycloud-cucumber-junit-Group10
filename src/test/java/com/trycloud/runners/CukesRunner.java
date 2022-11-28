@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/trycloud/step_definitions",
         dryRun = false ,
-        tags = "",
+        tags = "@ElenaB",
         publish = true
 )
 public class CukesRunner {
