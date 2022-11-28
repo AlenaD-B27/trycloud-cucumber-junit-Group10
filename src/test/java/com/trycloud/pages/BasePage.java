@@ -20,11 +20,12 @@ public abstract class BasePage {
 
     // --- MODULES:
 
-     @FindBy()
+     @FindBy(xpath = "//*[@id='appmenu']//li[@data-id='dashboard']//a")
     public WebElement dashboardModule;
 
-     @FindBy()
+     @FindBy(xpath = "(//a[@aria-label='Files'])[1]")
     public WebElement filesModule;
+
 
      @FindBy()
     public WebElement photosModule;

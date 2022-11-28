@@ -1,8 +1,5 @@
 package com.trycloud.runners;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -16,8 +13,8 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "com/trycloud/step_definitions",
-        dryRun = true ,
-        tags = "@wip"
+        dryRun = false ,
+        tags = "@us08"
         //publish = true
 )
 public class CukesRunner {

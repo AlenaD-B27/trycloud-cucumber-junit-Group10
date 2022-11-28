@@ -1,9 +1,9 @@
 Feature: As a user, I should be able to delete a file/folder.
-  Background:
-    Given user on the dashboard page
+
 
   @us08
-  Scenario Outline: Verify users delete a file/folder
+  Scenario: Verify users delete a file/folder
+    Given user on the dashboard page
     When the user clicks the "Files" module
     And user click action-icon  from any file on the page
     And user choose the "Delete f" option
@@ -12,9 +12,4 @@ Feature: As a user, I should be able to delete a file/folder.
 
 
 
-    Examples:
-      | username | password    |
-      | User10   | Userpass123 |
-      | User40   | Userpass123 |
-      | User70   | Userpass123 |
-      | User100  | Userpass123 |
+
