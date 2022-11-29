@@ -6,3 +6,4 @@ Feature: As a user, I should be able to access to Files module.
     When the user clicks the "Files" module
 
     Then verify the page title is "Files - trycloud QA"
+
