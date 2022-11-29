@@ -22,6 +22,6 @@ public class FilesAccess {
 
     @Then("verify the page title is {string}")
     public void verifyThePageTitleIs(String arg0) {
-        System.out.println("Then the page it verified ");
+        System.out.println("Then the page is verified ");
     }
 }
