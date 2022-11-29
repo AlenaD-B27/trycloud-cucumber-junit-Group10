@@ -6,7 +6,7 @@ public class Pages {
     private LoginPage loginPage;
     private FilesPage filesPage;
 
-
+//
     public LoginPage  loginPage (){
         if(loginPage == null){
             loginPage=new LoginPage();
