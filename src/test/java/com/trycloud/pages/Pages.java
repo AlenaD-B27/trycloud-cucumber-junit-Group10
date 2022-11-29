@@ -2,6 +2,7 @@ package com.trycloud.pages;
 
 public class Pages {
 
+
     private LoginPage loginPage;
     private FilesPage filesPage;
 

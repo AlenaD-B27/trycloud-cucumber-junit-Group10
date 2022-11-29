@@ -18,65 +18,85 @@ public abstract class BasePage {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
         wait.until(ExpectedConditions.visibilityOf(logout));
         logout.click();
-    }
+
+
+        }
     // create a logout method
 
-    @FindBy(css = "div[class='header-left']")
+
+
+     @FindBy(css = "div[class='header-left']")
     public WebElement header;
 
     // --- MODULES:
 
-    @FindBy(xpath = "(//ul/li[@data-id='dashboard'])[1]")
+
+     @FindBy(xpath = "(//ul/li[@data-id='dashboard'])[1]")
     public WebElement dashboardModule;
 
-    @FindBy(xpath = "(//ul/li[@data-id='files'])[1]")
+
+     @FindBy(xpath = "(//ul/li[@data-id='files'])[1]")
     public WebElement filesModule;
 
-    @FindBy(xpath = "(//ul/li[@data-id='photos'])[1]")
+
+     @FindBy(xpath = "(//ul/li[@data-id='photos'])[1]")
     public WebElement photosModule;
+
 
     @FindBy(xpath = "(//ul/li[@data-id='activity'])[1]")
     public WebElement activityModule;
 
+
     @FindBy(xpath = "(//ul/li[@data-id='spreed'])[1]")
     public WebElement talkModule;
 
-    @FindBy(xpath = "(//ul/li[@data-id='contacts'])[1]")
+
+     @FindBy(xpath = "(//ul/li[@data-id='contacts'])[1]")
     public WebElement contactsModule;
 
-    @FindBy(xpath = "(//ul/li[@data-id='circles'])[1]")
+
+     @FindBy(xpath = "(//ul/li[@data-id='circles'])[1]")
     public WebElement circlesModule;
 
-    @FindBy(xpath = "(//ul/li[@data-id='calendar'])[1]")
+
+     @FindBy(xpath = "(//ul/li[@data-id='calendar'])[1]")
     public WebElement calendarModule;
 
-    @FindBy(xpath = "(//ul/li[@data-id='deck'])[1]")
+
+     @FindBy(xpath = "(//ul/li[@data-id='deck'])[1]")
     public WebElement deckModule;
 
     // --- right side of the header buttons:
 
-    @FindBy(xpath = "//div/div/a[@href='#']")
+
+     @FindBy(xpath = "//div/div/a[@href='#']")
     public WebElement searchButton;
+
 
     @FindBy(xpath = "//div/div[@aria-label='Notifications']")//className class="notifications"
     public WebElement notificationsButton;
 
-    @FindBy(id = "contactsmenu")
+
+     @FindBy(id = "contactsmenu")
     public WebElement contactsButton;
 
-    @FindBy(id = "settings")
+     @FindBy(id = "settings")
     public WebElement usersProfileDropdown;
 
     // --- users profile dropdown menu:
 
-    @FindBy(xpath = "//ul/li/div/a[@href='#']")
+
+     @FindBy(xpath = "//ul/li/div/a[@href='#']")
     public WebElement setStatus;
+
 
     @FindBy(xpath = "//ul/li[@data-id='settings']")
     public WebElement settings;
 
+
     @FindBy(xpath = "//ul/li[@data-id='help']")
     public WebElement help;
+
 
     @FindBy(xpath = "//ul/li[@data-id='logout']")
     public WebElement logout;

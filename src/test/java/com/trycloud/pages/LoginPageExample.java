@@ -6,43 +6,34 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPageExample {
 
-    public LoginPage() {
+    public LoginPageExample(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(id = "user")
+    @FindBy(id="user")
     public WebElement inputUsername;
 
-    @FindBy(id = "password")
+    @FindBy(id="password")
     public WebElement inputPassword;
 
-    @FindBy(id = "submit-form")
+    @FindBy(id="submit-form")
     public WebElement loginButton;
-
-
-    public void login1(String userName, String password) {
-        inputUsername.sendKeys(userName);
-        inputPassword.sendKeys(password);
-        loginButton.click();
-    }
 
     @FindBy(xpath = "//p[@class='warning wrongPasswordMsg']")
     public WebElement message;
 
-    public void login(String username, String password) {
+    public void login (String username, String password){
         inputUsername.sendKeys(username);
         inputPassword.sendKeys(password);
     }
-
-    public void login() {
+    public void login (){
         inputUsername.sendKeys(ConfigReader.getProperty("username3"));
         inputPassword.sendKeys(ConfigReader.getProperty("password"));
         loginButton.click();
     }
-
-    public void goToLoginPage() {
+    public void goToLoginPage(){
         Driver.getDriver().get(ConfigReader.getProperty("login"));
     }
 
