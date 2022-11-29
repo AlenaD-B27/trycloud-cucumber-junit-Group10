@@ -21,6 +21,12 @@ public class LoginPage {
     @FindBy(id="submit-form")
     public WebElement loginButton;
 
+   public void login1(String userName, String password){
+        inputUsername.sendKeys(userName);
+        inputPassword.sendKeys(password);
+        loginButton.click();
+    }
+
     @FindBy(xpath = "//p[@class='warning wrongPasswordMsg']")
     public WebElement message;
 
@@ -33,21 +39,6 @@ public class LoginPage {
         inputPassword.sendKeys(ConfigReader.getProperty("password"));
         loginButton.click();
     }
-
-
-
-
-
-   public void login1(String userName, String password){
-        inputUsername.sendKeys(userName);
-        inputPassword.sendKeys(password);
-        loginButton.click();
-    }
-
-
-
-
-
     public void goToLoginPage(){
         Driver.getDriver().get(ConfigReader.getProperty("login"));
     }
