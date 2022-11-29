@@ -23,7 +23,7 @@ public class SearchFilesAndUsers_StepDefs {
     LoginPage loginPage = new LoginPage();
     DashboardPage dashboardPage = new DashboardPage();
     SearchPage searchPage = new SearchPage();
-String depo = "";
+
 
     @Given("<user> on the dashboard page")
     public void userOnTheDashboardPage() {
