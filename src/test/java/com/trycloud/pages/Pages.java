@@ -6,7 +6,6 @@ public class Pages {
     private LoginPage loginPage;
     private FilesPage filesPage;
 
-    private DashboardPage dashboardPage;
 
     public LoginPage  loginPage (){
         if(loginPage == null){
