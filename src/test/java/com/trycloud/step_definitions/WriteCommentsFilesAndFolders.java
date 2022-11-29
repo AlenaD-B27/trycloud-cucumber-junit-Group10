@@ -1,5 +1,6 @@
 package com.trycloud.step_definitions;
 
+import com.github.javafaker.Faker;
 import com.trycloud.pages.FilesPage;
 import com.trycloud.pages.LoginPage;
 import com.trycloud.utilities.BrowserUtils;
@@ -8,10 +9,15 @@ import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
 public class WriteCommentsFilesAndFolders {
     FilesPage filesPage = new FilesPage();
+
+    Faker faker = new Faker();
+
+    String msg = faker.chuckNorris().fact();
 
     @Given("user on the dashboard page")
     public void user_on_the_dashboard_page() {
@@ -41,7 +47,7 @@ public class WriteCommentsFilesAndFolders {
     @When("user write a comment inside the input box")
     public void user_write_a_comment_inside_the_input_box() {
         filesPage.commentsButton.click();
-        filesPage.inputComment.sendKeys("Life is life" + Keys.ENTER);
+        filesPage.inputComment.sendKeys(msg);
         BrowserUtils.waitFor(1);
     }
 
@@ -53,6 +59,12 @@ public class WriteCommentsFilesAndFolders {
 
     @Then("Verify the comment is displayed in the comment section.")
     public void verify_the_comment_is_displayed_in_the_comment_section() {
+
+        String expectedResult = msg;
+        String actualResult = filesPage.lastComment.getText();
+
+        Assert.assertEquals(expectedResult, actualResult);
+
 
     }
 

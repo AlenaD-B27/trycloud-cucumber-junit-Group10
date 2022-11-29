@@ -22,4 +22,8 @@ public class FilesPage extends BasePage {
 
     @FindBy(xpath = "//*[@id=\"commentsTabView\"]/div[1]/form/input")
     public WebElement sendButton;
+
+
+    @FindBy(xpath = "(//div[@class='message'])[2]")
+    public WebElement lastComment;
 }
