@@ -21,7 +21,7 @@ public class Login_TalkPage {
     @FindBy(id = "submit-form")
     public WebElement loginButton;
 
-    @FindBy(xpath = "//*[@id=\"appmenu\"]/li[5]")
+    @FindBy(xpath = "(//*[@id='appmenu']/li/a)[5]")
     public WebElement talkBtnPage;
 
     @FindBy(xpath = "/html/head/title")
@@ -42,6 +42,7 @@ public class Login_TalkPage {
 
         usernameBox.sendKeys(username);
         passwordBox.sendKeys(password);
+        loginButton.click();
 
     }
 
