@@ -1,16 +1,44 @@
 package com.trycloud.pages;
-
 import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import java.util.List;
-
 import static com.trycloud.utilities.TryCloudJavaUtils.normalizeCase;
 
+
 public class FilesPage extends BasePage {
+
+    @FindBy(xpath = "//*[@id=\"appmenu\"]/li[2]/a")
+    public WebElement fileButton;
+
+    @FindBy(xpath = "//*[@id=\"fileList\"]/tr[1]/td[2]/a/span[2]/a[2]/span[1]")
+    public WebElement actionButton;
+
+    @FindBy(xpath = "//*[@id=\"fileList\"]/tr[1]/td[2]/div/ul/li[4]/a/span[2]")
+    public WebElement detailButton;
+
+    @FindBy(xpath = "//*[@id=\"commentsTabView\"]/span")
+    public WebElement commentsButton;
+
+    @FindBy(xpath = "//*[@id=\"commentsTabView\"]/div[1]/form/div[1]")
+    public WebElement inputComment;
+
+    @FindBy(xpath = "//*[@id=\"commentsTabView\"]/div[1]/form/input")
+    public WebElement sendButton;
+
+
+    @FindBy(xpath = "(//div[@class='message'])[2]")
+    public WebElement lastComment;
+
+
+
+
+
+
 
     @FindBy(xpath = "//table[@id='filestable']//tr[@data-type='file']")
     public List<WebElement> tableOnThePage;
