@@ -4,6 +4,8 @@ import com.trycloud.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 
@@ -11,69 +13,93 @@ public abstract class BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    public void logout(){
+        usersProfileDropdown.click();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+        wait.until(ExpectedConditions.visibilityOf(logout));
+        logout.click();
 
+
+        }
     // create a logout method
 
 
-     @FindBy()
+
+     @FindBy(css = "div[class='header-left']")
     public WebElement header;
 
     // --- MODULES:
 
-     @FindBy()
+
+     @FindBy(xpath = "(//ul/li[@data-id='dashboard'])[1]")
     public WebElement dashboardModule;
 
-     @FindBy()
+     @FindBy(xpath = "(//a[@aria-label='Files'])[1]")
+     public WebElement usersProfileDropdown;
+
+     @FindBy(xpath = "(//ul/li[@data-id='files'])[1]")
     public WebElement filesModule;
 
-     @FindBy()
+
+     @FindBy(xpath = "(//ul/li[@data-id='photos'])[1]")
     public WebElement photosModule;
 
-     @FindBy()
+
+    @FindBy(xpath = "(//ul/li[@data-id='activity'])[1]")
     public WebElement activityModule;
+
+
+    @FindBy(xpath = "(//ul/li[@data-id='spreed'])[1]")
+    public WebElement talkModule;
 
     @FindBy(xpath="//*[@id=\"appmenu\"]/li[5]/a")
     public WebElement talkModuleTitle;
 
 
-     @FindBy()
+
+     @FindBy(xpath = "(//ul/li[@data-id='contacts'])[1]")
     public WebElement contactsModule;
 
-     @FindBy()
+
+     @FindBy(xpath = "(//ul/li[@data-id='circles'])[1]")
     public WebElement circlesModule;
 
-     @FindBy()
+
+     @FindBy(xpath = "(//ul/li[@data-id='calendar'])[1]")
     public WebElement calendarModule;
 
-     @FindBy()
+
+     @FindBy(xpath = "(//ul/li[@data-id='deck'])[1]")
     public WebElement deckModule;
 
-     // --- right side of the header buttons:
+    // --- right side of the header buttons:
 
-     @FindBy()
+      @FindBy(xpath = "//div/div/a[@href='#']")
     public WebElement searchButton;
 
-     @FindBy()
+
+    @FindBy(xpath = "//div/div[@aria-label='Notifications']")//className class="notifications"
     public WebElement notificationsButton;
 
-     @FindBy()
+
+     @FindBy(id = "contactsmenu")
     public WebElement contactsButton;
 
-     @FindBy()
-    public WebElement usersProfileDropdown;
 
     // --- users profile dropdown menu:
 
-     @FindBy
+     @FindBy(xpath = "//ul/li/div/a[@href='#']")
     public WebElement setStatus;
 
-     @FindBy()
+    @FindBy(xpath = "//ul/li[@data-id='settings']")
     public WebElement settings;
 
-     @FindBy()
+
+    @FindBy(xpath = "//ul/li[@data-id='help']")
     public WebElement help;
 
-     @FindBy()
+
+    @FindBy(xpath = "//ul/li[@data-id='logout']")
     public WebElement logout;
 
 
