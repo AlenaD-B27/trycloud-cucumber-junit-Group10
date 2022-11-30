@@ -13,16 +13,14 @@ public abstract class BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    public void logout(){
+       public void logout(){
         usersProfileDropdown.click();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
-        wait.until(ExpectedConditions.visibilityOf(logout));
+           WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+           wait.until(ExpectedConditions.visibilityOf(logout));
         logout.click();
-
 
         }
     // create a logout method
-
 
 
      @FindBy(css = "div[class='header-left']")
@@ -30,9 +28,9 @@ public abstract class BasePage {
 
     // --- MODULES:
 
-
      @FindBy(xpath = "(//ul/li[@data-id='dashboard'])[1]")
     public WebElement dashboardModule;
+
 
      @FindBy(xpath = "(//a[@aria-label='Files'])[1]")
      public WebElement usersProfileDropdown;
@@ -68,7 +66,7 @@ public abstract class BasePage {
      @FindBy(xpath = "(//ul/li[@data-id='deck'])[1]")
     public WebElement deckModule;
 
-    // --- right side of the header buttons:
+     // --- right side of the header buttons:
 
       @FindBy(xpath = "//div/div/a[@href='#']")
     public WebElement searchButton;

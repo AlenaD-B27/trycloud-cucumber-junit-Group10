@@ -8,21 +8,13 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
-
     @After
-    public void teardownScenario(Scenario scenario){
-        // We will implement taking screenshot in this method
-        //System.out.println("It will be closing browser using cucumber @After each scenario");
-
-        if(scenario.isFailed()) {
-            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", scenario.getName());
+    public void tearDown(Scenario scenario){
+        if (scenario.isFailed()){
+            TakesScreenshot ts= (TakesScreenshot) Driver.getDriver();
+            byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot,"image/png","failure_ss");
         }
-
-
         Driver.closeDriver();
     }
-
-
-
 }
