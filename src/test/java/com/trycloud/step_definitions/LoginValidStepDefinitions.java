@@ -19,7 +19,7 @@ public class LoginValidStepDefinitions {
 
     @When("user enter username {string} and passcode {string}")
     public void user_enter_username_and_passcode(String username, String password) {
-        loginPage.login(username, password);
+        loginPage.login(username,password);
     }
 
     @When("user click the login button")
@@ -31,4 +31,6 @@ public class LoginValidStepDefinitions {
     public void verify_the_user_should_be_at_the_dashboard_page() {
         BrowserUtils.verifyTitleContains("Dashboard");
     }
-}
+
+    }
+

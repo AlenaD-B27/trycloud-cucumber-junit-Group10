@@ -2,6 +2,8 @@
 package com.trycloud.pages;
 import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.Driver;
+import java.util.ArrayList;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,11 +38,6 @@ public class FilesPage extends BasePage {
     public WebElement lastComment;
 
 
-
-
-
-
-
     @FindBy(xpath = "//table[@id='filestable']//tr[@data-type='file']")
     public List<WebElement> tableOnThePage;
 
@@ -51,7 +48,7 @@ public class FilesPage extends BasePage {
     public WebElement recommendedSelectAsFav;
 
 
-    public void clickSubModule(String favoriteButton){
+    public void clickSubModule(String favoriteButton) {
         Driver.getDriver().findElement(By.xpath("//ul[@class='with-icon']//li//a[.='" + normalizeCase(favoriteButton) + "']"));
     }
 
@@ -65,11 +62,11 @@ public class FilesPage extends BasePage {
         for (int i = 0; i <= tableOnThePage.size() - 1; i++) {
 
 
-            if (Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//div[contains(@class,'favorite-mark')])[" + (i + 1) + "]")).getAttribute("class").contains("permanent")) {
+            if (Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//div[contains(@class,'favorite-mark')])[" + ( i + 1 ) + "]")).getAttribute("class").contains("permanent")) {
 
-                uRLFile = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//a[contains(@href,'.php')])[" + (i + 1) + "]")).getAttribute("href");
+                uRLFile = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//a[contains(@href,'.php')])[" + ( i + 1 ) + "]")).getAttribute("href");
 
-                actionButton = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//span[@class='fileactions']//a[@data-action='menu'])[" + (i + 1) + "]"));
+                actionButton = Driver.getDriver().findElement(By.xpath("(//table[@id='filestable']//tr[@data-type='file']//span[@class='fileactions']//a[@data-action='menu'])[" + ( i + 1 ) + "]"));
 
                 break;
 
@@ -95,5 +92,32 @@ public class FilesPage extends BasePage {
     }
 
 
+    @FindBy(xpath = "//div[@class='app-content-list-item-line-one']")
+    public List<WebElement> contactNamesElements;
 
+    @FindBy(xpath = "//table[@id='filestable']/thead/tr/th[@id='headerSelection']")
+    public WebElement checkAll;
+
+    @FindBy(css = "li[data-id='files'] > a > svg > image")
+    public WebElement filesModule;
+
+    @FindBy(xpath = "//label[contains(@for,'select-files')]/../input")
+    public List<WebElement> checkFileButtons;
+
+    public List<String> getContactNames() {
+        List<String> contactNames = new ArrayList<>();
+        for (WebElement namesElement : contactNamesElements) {
+            contactNames.add(namesElement.getText());
+        }
+        return contactNames;
+    }
+
+    public void assertCheckButtonsisChecked() {
+        for (WebElement checkFileButton : checkFileButtons) {
+            Assert.assertTrue(checkFileButton.isSelected());
+
+        }
+    }
 }
+
+
