@@ -49,8 +49,14 @@ public abstract class BasePage {
     public WebElement activityModule;
 
 
+    @FindBy(xpath="//*[@id=\"appmenu\"]/li[5]/a")
+    public WebElement talkModuleTitle;
+
+
+
     @FindBy(xpath = "(//ul/li[@data-id='spreed'])[1]")
     public WebElement talkModule;
+
 
 
      @FindBy(xpath = "(//ul/li[@data-id='contacts'])[1]")
