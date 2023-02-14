@@ -82,12 +82,4 @@ public abstract class BasePage {
     public WebElement logout;
 
 
-
-
-
-
-
-
-
-
 }
